@@ -1,9 +1,5 @@
-'''
-Created on Mon Sep 06 20:55:06 2018
 
-Author: Fatemeh Zabihollahy
-'''
-#%%
+#%% Import the required libraries
 import numpy
 from PIL import Image
 from sklearn.metrics import f1_score, accuracy_score, precision_score, recall_score
@@ -17,10 +13,12 @@ import nibabel as nib
 import glob
 from matplotlib import pyplot as plt
 
-path1 = r'C:\Users\Fatemeh\Desktop\LGE Cardiac MRI\LGE Images nii'
+#%% Load 3D LGE CMRIs along with the myocardium masks
+
+path1 = r'Please enter the path where the LGE CMRIs in .nii format are located.'
 LGEs = glob.glob(path1 + "/*")
 
-path2 = r'C:\Users\Fatemeh\Desktop\LGE Cardiac MRI\Myocardial Masks nii'
+path2 = r'Please enter the path where the myocardium masks in .nii format are located.'
 MYOs = glob.glob(path2 + "/*")
 
 
@@ -32,7 +30,7 @@ y_unet = 256
 data_train = numpy.zeros((1,x_unet*y_unet))
 mask_train =  numpy.zeros((1,x_unet*y_unet))
 
-for n in range(14): 
+for n in range(18): 
     
     data_lge = nib.load(LGEs[n]);
     lge = data_lge.get_data()
