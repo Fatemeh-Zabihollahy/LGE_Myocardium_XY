@@ -96,17 +96,6 @@ mask_train = numpy.delete(mask_train, (0), axis=0)
 data_train = data_train.reshape(data_train.shape[0], x_unet, y_unet, 1)
 mask_train = mask_train.reshape(mask_train.shape[0], x_unet, y_unet, 1)
 
-#%% Visualize one sample of the training data and mask
-k = 260
-lge_sample = data_train[k,:]
-lge_sample = lge_sample.reshape(x_unet, y_unet)
-lge_img = Image.fromarray(lge_sample*255)
-lge_img.show()
-
-mask_sample = mask_train[k,:]
-mask_sample = mask_sample.reshape(x_unet, y_unet)
-mask_img = Image.fromarray(mask_sample*255)
-mask_img.show()
 
 
 #%% U-net Architecture
